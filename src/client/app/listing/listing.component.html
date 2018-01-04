@@ -1,0 +1,30 @@
+
+<div class="search">
+<form (submit)="search()">
+  <input [(ngModel)]="newName" name="newName" placeholder="Search">
+  <button type="submit">Search</button>
+</form>
+<div *ngIf="followers.length > 0" class="results">
+<ul>
+  <li *ngFor="let name of followers">
+    <div class="results_avatar"  [ngStyle]="{'background-image': 'url(' +name.avatar_url+ ')'}">
+    </div>
+    <div class="results_body">
+      <div class="results_body-heading">{{ name.login }} <b>{{name.html_url}}</b></div>
+        {{name.repos_url}}<br>
+        {{name.organizations_url}}<br>
+        {{name.received_events_url}}<br>
+        {{name.html_url}}<br>
+        {{name.subscriptions_urll}}<br>
+    </div>
+  </li>
+</ul>
+<div class="button-navs">
+  <button class="prev" type="submit">< Previous </button>
+  <div class="button-navs_spacer"></div>
+  <button class="next" type="submit">Next ></button>
+</div>
+
+</div>
+
+</div>
